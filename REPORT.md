@@ -1,85 +1,22 @@
 # 課堂任務管理器實作報告
 
-課程：＿＿＿＿＿＿＿＿＿＿　班級：＿＿＿＿＿＿＿＿＿＿  
-姓名：＿＿＿＿＿＿＿＿＿＿　學號：＿＿＿＿＿＿＿＿＿＿  
-日期：2026 年 9 月 30 日
+## 1. Web App 與原始碼
 
-## 一　作品與提交資訊
+- [原生 JavaScript 網站](https://wenanchang19.github.io/task-manager-classwork/)
+- [Vue 網站](https://wenanchang19.github.io/task-manager-classwork/vue.html)
+- [GitHub 原始碼](https://github.com/WenAnChang19/task-manager-classwork)
 
-本作品是可直接執行的靜態 Web App，包含原生 JavaScript 版與獨立 Vue 3 版。原生版完成新增、空白檢查、完成與取消完成、刪除、全部／未完成／已完成篩選和即時統計；Vue 版完成啟動、新增、完成與取消完成、刪除和統計。兩個版本的任務陣列互相獨立，重新整理頁面後任務會清空。
+原生版支援新增、完成／取消完成、刪除、三種篩選及統計；Vue 版重新實作新增、完成與刪除。兩個版本的資料獨立，重新整理後任務清空。
 
-- GitHub 原始碼：<https://github.com/WenAnChang19/task-manager-classwork>（公開，不需登入）
-- 原生版網站：<https://wenanchang19.github.io/task-manager-classwork/>（已發布並驗證）
-- Vue 版網站：<https://wenanchang19.github.io/task-manager-classwork/vue.html>（已發布並驗證）
-- 原生版入口：[index.html](index.html)
-- Vue 版入口：[vue.html](vue.html)
-- 測試環境：Chromium 151.0.7922.34，由 Playwright 自動操作
-- 自動測試結果：TC01–TC10 與延伸檢查 EX01 共 11 項，全部 PASS
+## 2. 查核點證據
 
-提交時提供上述 GitHub 儲存庫連結即可，首頁連到線上網站、原始碼及本報告。也可下載儲存庫後直接開啟 `index.html` 與 `vue.html`；Vue 執行檔已放在 `vendor/`，一般使用不需要安裝 npm、執行建置或連線 CDN。
+### Checkpoint 1-1：基本介面
 
-![原生版桌面完整畫面](submission/report-evidence/desktop-overall.png)
+標題、任務輸入欄、新增按鈕、清單、篩選和統計均存在；重新整理後基本介面保留。
 
-圖 1　原生版桌面完整畫面，包含標題、新增表單、篩選、清單與統計。
+![重新整理後的完整介面](evidence/desktop-reloaded.png)
 
-重新整理後仍保留基本介面，任務資料則重置；以下是實際重新整理後的完整畫面。
-
-![重新整理後仍保留基本介面](evidence/desktop-reloaded.png)
-
-## 二　檔案與執行方式
-
-| 檔案 | 用途 |
-| --- | --- |
-| [`index.html`](index.html) | 原生版語意化 HTML 與操作入口 |
-| [`styles.css`](styles.css) | 兩個版本共用的版面、RWD、hover 與 focus 樣式 |
-| [`app.js`](app.js) | 原生版任務資料、事件處理、篩選、統計與 DOM 更新 |
-| [`vue.html`](vue.html) | Vue 模板與 `#vue-app` 掛載區 |
-| [`vue-app.js`](vue-app.js) | Vue 的 `data`、`methods` 與 `computed` |
-| [`vendor/vue.global.prod.js`](vendor/vue.global.prod.js) | 專案內附的 Vue 3 production global build |
-| [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) | Vue 來源與授權說明 |
-| [`tests/browser-test.cjs`](tests/browser-test.cjs) | Playwright 瀏覽器自動測試 |
-| [`submission/report-evidence/`](submission/report-evidence/) | 本報告使用的可讀操作截圖與擷取結果 |
-
-直接執行：下載或 clone 儲存庫後，以瀏覽器開啟 `index.html`；右上角連結可切換到 `vue.html`。也可在專案目錄啟動本機伺服器：
-
-```sh
-python3 -m http.server 8765 --bind 127.0.0.1
-```
-
-再開啟 `http://127.0.0.1:8765/`。這是本機預覽位址，不能當作老師可遠端開啟的公開網址。
-
-開發驗證命令如下；一般使用網站不需要執行這些命令。
-
-```sh
-npm install
-npx playwright install chromium
-npm run check
-npm test
-```
-
-## 三　題目查核矩陣
-
-下表只對照要求、實作位置與可查證證據，不預測成績。
-
-| 查核點 | 實作結果 | 程式位置 | 報告證據 |
-| --- | --- | --- | --- |
-| 1-1 | 有標題、輸入、新增、清單、篩選、統計；重新整理後介面仍在 | `index.html`、`app.js` | 圖 1、TC01、EX01 |
-| 1-2 | 使用 `header`、`main`、`section`、`button`、`label`、`ul`／動態 `li`，並以註解標示重要區域 | `index.html` 第 42–61 行 | 第四節程式片段 |
-| 2-1 | 新增與清單分區清楚，輸入欄、按鈕與任務層次可辨識 | `styles.css` | 圖 1、圖 6 |
-| 2-2 | 480px 以下改為直向排列，長字串可換行，無水平溢出 | `styles.css` 的 `@media` | 圖 2、TC09 |
-| 2-3 | 新增、刪除、篩選、連結有 hover；控制項有 `focus-visible` | `styles.css` | 圖 3、擷取紀錄 |
-| 3-1 | 可新增一般任務，`trim()` 後拒絕空字串與純空白 | `app.js` | 圖 4、圖 5、TC01–02 |
-| 3-2 | 核取方塊可完成與取消完成，樣式及統計同步 | `app.js` | 圖 6、TC03–04 |
-| 3-3 | 依任務 ID 刪除指定任務，其餘任務保留 | `app.js` | 圖 7、TC05 |
-| 3-4 | 全部、未完成、已完成三種篩選不改動原始任務陣列 | `app.js` | 圖 8、TC06–07 |
-| 3-5 | 以完整 `tasks` 陣列計算總數、未完成、已完成 | `app.js` | 圖 9、TC08 |
-| 4 | 提供 28 行新增相關程式，指出資料、新增與畫面更新 | `app.js` 第 3–30 行 | 第七節 |
-| 5-1 | Vue 3 在 `#vue-app` 正常掛載 | `vue.html`、`vue-app.js` | 圖 10、TC10 |
-| 5-2 | `v-model` 與 `addTask()` 完成新增與空白檢查 | `vue-app.js` | 圖 10、TC10 |
-| 5-3 | `toggleTask()` 完成勾選與取消勾選 | `vue-app.js` | 圖 11、TC10 |
-| 5-4 | `deleteTask()` 刪除資料並更新畫面 | `vue-app.js` | 圖 12、TC10 |
-
-## 四　HTML 介面與語意結構
+### Checkpoint 1-2：語意化 HTML
 
 原生版以 `header` 放置作品標題與版本切換，以 `main` 包住主要內容。新增區使用 `form` 和對應輸入欄的 `label`；任務區使用 `section`、標題關聯、篩選按鈕、`ul` 清單及統計區。下列片段是實際 [`index.html`](index.html) 第 42–61 行：
 
@@ -110,81 +47,81 @@ npm test
 
 ![標示重要語意區域的 HTML 程式截圖](evidence/code-html.png)
 
-## 五　CSS 版面　RWD 與互動狀態
+### Checkpoint 2-1～2-3：CSS、RWD 與 Hover／Focus
 
 桌面版採灰白背景、白色面板與藍色主要按鈕。`.page-width` 限制內容寬度，任務項目使用 grid 配置文字與刪除按鈕。`overflow-wrap: anywhere` 讓無空格長字串也能換行。
 
 當寬度不超過 480px，標題列、表單與區段標題改成直向排列，新增按鈕填滿寬度，三個篩選按鈕維持三欄。Playwright 在 480、375、320px 都檢查 `scrollWidth` 不大於 viewport，並確認輸入、按鈕和刪除操作留在畫面內。
 
-![375px 手機版，長文字正常換行](submission/report-evidence/mobile375.png)
+![375px 手機版，長文字正常換行](evidence/mobile375.png)
 
 圖 2　375px 手機畫面；長字串換行，新增、篩選與刪除按鈕均在視窗內。
 
 | hover 前 | hover 後 |
 | --- | --- |
-| ![新增按鈕 hover 前](submission/report-evidence/hover-before.png) | ![新增按鈕 hover 後](submission/report-evidence/hover-after.png) |
+| ![新增按鈕 hover 前](evidence/hover-before.png) | ![新增按鈕 hover 後](evidence/hover-after.png) |
 
-圖 3　新增按鈕背景色由 `rgb(37, 99, 235)` 變為 `rgb(29, 78, 216)`。鍵盤 Tab 可將焦點移到輸入欄，並顯示 3px 藍色 `focus-visible` 外框；證據見 [focus-input.png](submission/report-evidence/focus-input.png)。
+圖 3　新增按鈕背景色由 `rgb(37, 99, 235)` 變為 `rgb(29, 78, 216)`。鍵盤操作時，控制項也會顯示藍色 `focus-visible` 外框。
 
-## 六　原生 JavaScript 功能與操作證據
+### Checkpoint 3-1～3-5：JavaScript 功能
 
-### 6.1 新增與空白檢查
+#### 3-1 新增與空白檢查
 
 表單提交時先用 `trim()` 移除頭尾空白。內容有效時加入 `{ id, name, completed: false }`，重設表單並重畫清單；空字串或純空白則顯示提示，不加入陣列。
 
 | TC01 新增前 | TC01 新增後 |
 | --- | --- |
-| ![新增前已輸入內容](submission/report-evidence/add-before.png) | ![新增後任務與統計更新](submission/report-evidence/add-after.png) |
+| ![新增前已輸入內容](evidence/add-before.png) | ![新增後任務與統計更新](evidence/add-after.png) |
 
 圖 4　新增前清單為空；新增後出現「完成 Web App 實作」，輸入清空，統計為 1／1／0。
 
 | TC02 空白送出前 | TC02 空白送出後 |
 | --- | --- |
-| ![純空白送出前](submission/report-evidence/blank-before.png) | ![純空白被拒絕](submission/report-evidence/blank-after.png) |
+| ![純空白送出前](evidence/blank-before.png) | ![純空白被拒絕](evidence/blank-after.png) |
 
 圖 5　送出純空白後沒有產生任務，提示「請輸入任務內容。」，統計維持 0／0／0。
 
-### 6.2 完成與取消完成
+#### 3-2 完成與取消完成
 
 清單使用事件委派監聽 checkbox 的 `change`。程式依 `data-task-id` 找到對應資料，更新 `completed` 後呼叫 `renderTasks()`；再次取消勾選時使用相同流程恢復未完成。
 
 | TC03 未完成 | TC03 完成 |
 | --- | --- |
-| ![任務尚未完成](submission/report-evidence/toggle-before.png) | ![任務已完成](submission/report-evidence/toggle-after.png) |
+| ![任務尚未完成](evidence/toggle-before.png) | ![任務已完成](evidence/toggle-after.png) |
 
-圖 6　完成後 checkbox 勾選、文字加上完成樣式，統計由 1／1／0 更新為 1／0／1；[取消完成證據](submission/report-evidence/untoggle-after.png)顯示統計恢復 1／1／0。
+圖 6　完成後 checkbox 勾選、文字加上完成樣式，統計由 1／1／0 更新為 1／0／1；[取消完成證據](evidence/untoggle-after.png)顯示統計恢復 1／1／0。
 
-### 6.3 刪除指定任務
+#### 3-3 刪除指定任務
 
 刪除按鈕帶有任務 ID。程式用 `findIndex()` 找到資料，再用 `splice()` 移除。下列 TC05 證據完整記錄操作前後，符合至少兩項 Test Case 需有前後證據的要求之一。
 
 | TC05 刪除前 | TC05 刪除後 |
 | --- | --- |
-| ![刪除前有兩項任務](submission/report-evidence/delete-before.png) | ![刪除後保留另一項](submission/report-evidence/delete-after.png) |
+| ![刪除前有兩項任務](evidence/delete-before.png) | ![刪除後保留另一項](evidence/delete-after.png) |
 
 圖 7　刪除「完成 Web App 實作」後，只保留「整理作業提交資料」，統計由 2／2／0 變成 1／1／0。
 
-### 6.4 三種篩選
+#### 3-4 三種篩選
 
 三張圖使用同一組資料：依序為 Web App、JavaScript、提交資料，中間的 JavaScript 任務已完成。篩選只建立顯示用陣列，不會改動原始 `tasks`，所以三種畫面的整體統計都維持 3／2／1。
 
 | 全部 | 未完成 | 已完成 |
 | --- | --- | --- |
-| ![全部篩選顯示三項](submission/report-evidence/filter-all.png) | ![未完成篩選顯示兩項](submission/report-evidence/filter-pending.png) | ![已完成篩選顯示一項](submission/report-evidence/filter-completed.png) |
+| ![全部篩選顯示三項](evidence/filter-all.png) | ![未完成篩選顯示兩項](evidence/filter-pending.png) | ![已完成篩選顯示一項](evidence/filter-completed.png) |
 
 圖 8　全部顯示三項；未完成顯示第一與第三項；已完成只顯示中間任務。
 
-### 6.5 統計同步
+#### 3-5 統計同步
 
 `updateSummary()` 從完整 `tasks` 陣列計算完成數，再以總數減完成數得到未完成數，因此切換篩選不會改變統計。
 
 | TC08 完成前 | TC08 完成後 |
 | --- | --- |
-| ![兩項都未完成](submission/report-evidence/stats-before.png) | ![一項改為完成](submission/report-evidence/stats-after.png) |
+| ![兩項都未完成](evidence/stats-before.png) | ![一項改為完成](evidence/stats-after.png) |
 
 圖 9　將第一項標成完成後，統計由 2／2／0 更新為 2／1／1。
 
-## 七　新增程式片段與資料流程
+### 第四階段：JavaScript 程式驗證
 
 下列是實際 [`app.js`](app.js) 第 3–30 行，共 28 行，符合題目要求的 10–30 行範圍。
 
@@ -229,71 +166,49 @@ taskForm.addEventListener("submit", (event) => {
 
 ![app.js 第 3–30 行新增任務相關程式截圖](evidence/code-javascript.png)
 
-## 八　Vue 3 版本
+### Checkpoint 5-1～5-4：Vue 版本
 
 Vue 版使用 Options API。`data()` 提供 `tasks`、下一個 ID、輸入內容和訊息；`v-model` 連動輸入；`v-for` 依任務陣列建立清單；`computed` 計算總數、未完成與已完成。資料變更後由 Vue 更新畫面，不需要手動呼叫 `renderTasks()`。
 
 | 5-1 初始掛載 | 5-2 新增後 |
 | --- | --- |
-| ![Vue 初始畫面](submission/report-evidence/vue-initial.png) | ![Vue 新增任務](submission/report-evidence/vue-add.png) |
+| ![Vue 初始畫面](evidence/vue-initial.png) | ![Vue 新增任務](evidence/vue-add.png) |
 
 圖 10　Vue 成功掛載，初始統計 0／0／0；新增後顯示一項任務與 1／1／0。
 
 | 5-3 完成 | 5-3 取消完成 |
 | --- | --- |
-| ![Vue 任務完成](submission/report-evidence/vue-completed.png) | ![Vue 任務取消完成](submission/report-evidence/vue-uncompleted.png) |
+| ![Vue 任務完成](evidence/vue-completed.png) | ![Vue 任務取消完成](evidence/vue-uncompleted.png) |
 
 圖 11　`toggleTask()` 讓統計在 1／0／1 與 1／1／0 之間正確更新。
 
-![Vue 刪除後回到空清單](submission/report-evidence/vue-deleted.png)
+![Vue 刪除後回到空清單](evidence/vue-deleted.png)
 
 圖 12　`deleteTask()` 刪除唯一任務後，清單回到空狀態，統計為 0／0／0。
 
-## 九　自動測試表
+## 3. Unit Test 結果
 
 執行者：Codex 使用 Playwright 自動操作 Chromium；不是學生親自測試紀錄。  
 執行時間：2026-09-30 15:57:01（Asia/Taipei）。  
 瀏覽器：Chromium 151.0.7922.34。  
-結果：TC01–TC10 與延伸檢查 EX01 共 11 項，全部 PASS。
+結果：TC01–TC10 全部 PASS。
 
 | Test Case | 測試內容 | 預期結果 | 實際結果 | 結果 | 證據 |
 | --- | --- | --- | --- | --- | --- |
-| TC01 | 新增正常任務 | 任務出現，輸入欄清空，統計 1／1／0 | 任務出現、輸入清空；統計 1／1／0 | PASS | [前](submission/report-evidence/add-before.png)／[後](submission/report-evidence/add-after.png) |
-| TC02 | 新增空白任務 | 空字串與純空白皆不新增並顯示提示 | 兩種空白都沒有新增，顯示提示 | PASS | [前](submission/report-evidence/blank-before.png)／[後](submission/report-evidence/blank-after.png) |
-| TC03 | 完成任務 | 勾選後變成已完成，統計同步 | 已勾選並顯示完成樣式；統計 1／0／1 | PASS | [前](submission/report-evidence/toggle-before.png)／[後](submission/report-evidence/toggle-after.png) |
-| TC04 | 取消完成 | 取消勾選後恢復未完成 | 勾選取消、完成樣式移除；統計 1／1／0 | PASS | [取消前](submission/report-evidence/toggle-after.png)／[取消後](submission/report-evidence/untoggle-after.png) |
-| TC05 | 刪除任務 | 指定任務消失，其餘任務保留 | 指定任務消失，另一項保留；統計 1／1／0 | PASS | [前](submission/report-evidence/delete-before.png)／[後](submission/report-evidence/delete-after.png) |
-| TC06 | 篩選未完成 | 只顯示未完成，切回全部恢復所有任務 | 未完成只顯示第一與第三項；全部顯示三項；統計維持 3／2／1 | PASS | [全部](submission/report-evidence/filter-all.png)／[未完成](submission/report-evidence/filter-pending.png) |
-| TC07 | 篩選已完成 | 只顯示已完成；沒有符合項目時顯示提示 | 只顯示中間的已完成任務；取消完成後篩選結果為空 | PASS | [已完成](submission/report-evidence/filter-completed.png) |
-| TC08 | 統計數字 | 新增、完成、刪除、篩選後皆正確 | 依序驗證 0／0／0、2／2／0、2／1／1、1／1／0；篩選不改變統計 | PASS | [前](submission/report-evidence/stats-before.png)／[後](submission/report-evidence/stats-after.png) |
-| TC09 | 手機尺寸 | 480、375、320px 長文字不溢出，按鈕可操作 | 三種寬度皆無水平溢出；新增、篩選、完成、刪除可操作 | PASS | [375px 代表畫面](submission/report-evidence/mobile375.png) |
-| TC10 | Vue 功能 | Vue 啟動，新增、完成／取消、刪除立即更新 | Vue 已掛載；所有操作更新正確，拒絕空白；320px 無溢出 | PASS | [初始](submission/report-evidence/vue-initial.png)／[新增](submission/report-evidence/vue-add.png)／[完成](submission/report-evidence/vue-completed.png)／[取消](submission/report-evidence/vue-uncompleted.png)／[刪除](submission/report-evidence/vue-deleted.png) |
-| EX01 | 語意、重新整理、鍵盤、文字安全 | 基本 UI 保留，Enter 新增，HTML 字串不執行 | 語意結構存在；Enter、Space 與鍵盤按鈕操作成功；文字安全；重新整理保留 UI | PASS | [完整介面](submission/report-evidence/desktop-overall.png)／[focus](submission/report-evidence/focus-input.png) |
+| TC01 | 新增正常任務 | 任務出現，輸入欄清空，統計 1／1／0 | 任務出現、輸入清空；統計 1／1／0 | PASS | [前](evidence/add-before.png)／[後](evidence/add-after.png) |
+| TC02 | 新增空白任務 | 空字串與純空白皆不新增並顯示提示 | 兩種空白都沒有新增，顯示提示 | PASS | [前](evidence/blank-before.png)／[後](evidence/blank-after.png) |
+| TC03 | 完成任務 | 勾選後變成已完成，統計同步 | 已勾選並顯示完成樣式；統計 1／0／1 | PASS | [前](evidence/toggle-before.png)／[後](evidence/toggle-after.png) |
+| TC04 | 取消完成 | 取消勾選後恢復未完成 | 勾選取消、完成樣式移除；統計 1／1／0 | PASS | [取消前](evidence/toggle-after.png)／[取消後](evidence/untoggle-after.png) |
+| TC05 | 刪除任務 | 指定任務消失，其餘任務保留 | 指定任務消失，另一項保留；統計 1／1／0 | PASS | [前](evidence/delete-before.png)／[後](evidence/delete-after.png) |
+| TC06 | 篩選未完成 | 只顯示未完成，切回全部恢復所有任務 | 未完成只顯示第一與第三項；全部顯示三項；統計維持 3／2／1 | PASS | [全部](evidence/filter-all.png)／[未完成](evidence/filter-pending.png) |
+| TC07 | 篩選已完成 | 只顯示已完成；沒有符合項目時顯示提示 | 只顯示中間的已完成任務；取消完成後篩選結果為空 | PASS | [已完成](evidence/filter-completed.png) |
+| TC08 | 統計數字 | 新增、完成、刪除、篩選後皆正確 | 依序驗證 0／0／0、2／2／0、2／1／1、1／1／0；篩選不改變統計 | PASS | [前](evidence/stats-before.png)／[後](evidence/stats-after.png) |
+| TC09 | 手機尺寸 | 480、375、320px 長文字不溢出，按鈕可操作 | 三種寬度皆無水平溢出；新增、篩選、完成、刪除可操作 | PASS | [375px 代表畫面](evidence/mobile375.png) |
+| TC10 | Vue 功能 | Vue 啟動，新增、完成／取消、刪除立即更新 | Vue 已掛載；所有操作更新正確，拒絕空白；320px 無溢出 | PASS | [初始](evidence/vue-initial.png)／[新增](evidence/vue-add.png)／[完成](evidence/vue-completed.png)／[取消](evidence/vue-uncompleted.png)／[刪除](evidence/vue-deleted.png) |
 
-TC02 與 TC05 均已在第六節以操作前／後圖片完整呈現。自動測試也驗證任務名稱透過 `textContent` 或 Vue 文字插值顯示，輸入 `<img ...>` 時不會建立圖片元素；重新整理後任務清空，但表單、清單區與統計介面仍存在。
+TC02 與 TC05 均已在上方以操作前／後圖片完整呈現。自動測試也驗證任務名稱透過 `textContent` 或 Vue 文字插值顯示，輸入 `<img ...>` 時不會建立圖片元素；重新整理後任務清空，但表單、清單區與統計介面仍存在。
 
-較適合閱讀報告的 25 張截圖另由一次 Playwright 擷取流程產生，結果記錄在 [`capture_results.json`](submission/report-evidence/capture_results.json)：25 張皆 PASS，失敗數為 0。這批截圖用來呈現本報告畫面，不取代上表 TC01–TC10 的測試判定。
-
-### 公開 GitHub Pages 驗證
-
-2026-09-30 16:03:32（Asia/Taipei），Codex 使用 Playwright 在公開 HTTPS 網址實際操作，9 項檢查全部 PASS，未觀察到 console、JavaScript、網路請求或 HTTP 錯誤。此紀錄仍屬 AI 自動測試。
-
-| 檢查 | 實際結果 |
-| --- | --- |
-| 原生版與資源 | 首頁及 CSS／JS 回應 200，Vue 切換連結保留儲存庫子路徑 |
-| 原生新增、空白、完成／取消、刪除 | 操作成功，清單及統計同步更新 |
-| 原生三種篩選 | 全部 3、未完成 2、已完成 1；統計均為 3／2／1 |
-| 375px 手機版 | 長字串換行，沒有水平溢出，所有按鈕在視窗內 |
-| Vue 啟動與操作 | 啟動、新增、拒絕空白、完成／取消與刪除皆成功 |
-| 公開存取與檔案一致性 | 儲存庫及網站不需登入；6 個線上程式檔與本機逐位元組一致 |
-
-完整結果：[部署操作驗證](submission/report-evidence/deployment-results.json)、[公開檔案比對](submission/report-evidence/deployment-files.json)、[本機測試原始結果](evidence/test-results.json)。
-
-| 公開原生版 | 公開 Vue 版 |
-| --- | --- |
-| ![GitHub Pages 原生版實際操作](submission/report-evidence/deployed-index.png) | ![GitHub Pages Vue 版實際操作](submission/report-evidence/deployed-vue.png) |
-
-## 十　AI 使用紀錄
+## 4. AI 使用紀錄
 
 ### A. 是否使用 AI？
 
@@ -301,88 +216,58 @@ TC02 與 TC05 均已在第六節以操作前／後圖片完整呈現。自動測
 
 ### B1. 使用哪一個 AI？
 
-OpenAI Codex。
+OpenAI Codex。協助範圍包含程式生成、介面修改、自動測試、截圖與文件整理。
 
-本次 AI 協助範圍包含實作規劃、程式生成、UI 修改、瀏覽器自動測試、截圖與報告整理。程式由 Codex 依我的要求產生，學生本人測試與確認仍待完成。
+### B2. 三個模擬開發對話
 
-### B2. 三段具有代表性的 AI 對話
+本次實際提問：「你可以假想一下如果從頭開發會遇到什麼問題」。以下依這項要求生成三個模擬案例，並非三次實際發生的除錯對話；④、⑤說明建議與目前原始碼的做法，不宣稱學生曾親自完成這些修正。
 
-以下依本次真實聊天整理；AI 回答以摘要呈現，完整原文保留在本次 Codex 對話。
+#### 對話一：篩選後刪除或勾選錯誤任務
 
-#### 對話一：決定實作方式與框架
+① **可能遇到的問題**：用篩選清單的 `index` 操作原始 `tasks` 陣列，造成刪除或完成狀態套用到錯誤任務。
 
-① **我遇到的問題**：我還沒開始實作，已決定使用 GitHub，但需要決定原生 JavaScript 與框架版本的實作方式。
+② **模擬詢問**：「先用 `tasks.filter()` 顯示已完成任務，再呼叫 `deleteTask(index)`，為什麼會刪到其他項目？」
 
-② **我詢問 AI 的問題（原話）**：
+③ **AI 技術回答**：篩選陣列與原始陣列的索引可能不同。例如原始陣列的第三項，在篩選後可能變成第一項。操作按鈕應傳遞任務的固定 ID，再從原始陣列找到對應物件。
 
-> 還沒開始 用github 請建議 直接替我寫
+④ **目前程式的做法**：新增時使用 `nextTaskId` 建立 ID。原生版把 ID 放在 `data-task-id`；完成時以 `find()` 找到任務，刪除時以 `findIndex()` 找到原始位置後呼叫 `splice()`。
 
-③ **AI 的回答（摘要）**：建議使用 GitHub＋Vue，先完成原生 JavaScript 版的新增、完成、刪除、篩選與統計，再用 Vue 重新實作新增、完成與刪除。兩個版本可使用靜態網頁，透過 GitHub Pages 發布；同時需要保存測試與查核點證據。
+⑤ **建議的調整方式**：ID 可以用 UUID、時間戳或遞增數字。本作品使用遞增數字，且 `tasks` 宣告為 `const`，因此保留 `splice()` 修改陣列，不改成重新指派 `tasks = tasks.filter(...)`。
 
-④ **我最後採取的做法**：我請 AI 產生程式，作品採用原生 JavaScript＋Vue 兩個版本。後續我要求直接發布到 GitHub，並將證據、程式解說及測試表整合成同一份 `REPORT.md`。
+#### 對話二：手機版輸入框與長任務文字超出畫面
 
-⑤ **我是否修改 AI 的建議**：有。框架沿用 Vue，但我後續要求以 GitHub 儲存庫連結提交，取消 ZIP，並集中報告內容。
+① **可能遇到的問題**：輸入框與新增按鈕無法在窄畫面縮小；長字串讓任務列變寬，把刪除按鈕推到視窗外。
 
-#### 對話二：請 AI 操作新增任務並保存測試截圖
+② **模擬詢問**：「在 480px 以下，輸入框把新增按鈕擠出畫面，長任務名稱也會讓刪除按鈕超出螢幕。CSS 要怎麼調整？」
 
-① **我遇到的問題**：我需要知道哪些功能可以由 AI 協助測試，以及能否取得實際新增任務的操作前後證據。
+③ **AI 技術回答**：輸入與文字區塊需要允許縮小，長字串需要換行。可使用 `min-width: 0`、`overflow-wrap: anywhere`，並在手機尺寸讓新增表單改為上下排列，保留按鈕可操作的空間。
 
-② **我詢問 AI 的問題（原話）**：
+④ **目前程式的做法**：輸入框設為 `flex: 1; min-width: 0`；任務名稱使用 `overflow-wrap: anywhere`。480px 以下，`.input-row` 採 `flex-direction: column`，新增按鈕寬度為 `100%`，篩選按鈕維持三欄。
 
-> 哪些測試是你可以替我做的 你可以替我新增任務並截圖嗎
+⑤ **建議的調整方式**：不必強制所有尺寸維持左右並排。本作品桌面版並排、手機版上下排列；實際測試 480、375、320px 都沒有水平溢出。
 
-③ **AI 的回答（摘要）**：可以透過瀏覽器實際新增任務並截圖，也能測試完成／取消完成、刪除、篩選、統計、手機尺寸與 Vue 功能。這些紀錄必須標示為 AI 執行，不能當作學生親自測試。
+#### 對話三：Vue 任務資料與畫面連動
 
-④ **我最後採取的做法**：我請 AI 執行瀏覽器操作並保存截圖。AI 實際完成三次新增示範，另外保存本機 11 項測試與公開網站 9 項驗證結果；本人測試欄位保持未填，沒有將自動測試改稱為我親自完成。
+① **可能遇到的問題**：把任務資料保存在 Vue 管理範圍外，或混用手動 DOM 操作與 Vue 模板，導致資料與顯示清單不同步。
 
-⑤ **我是否修改 AI 的建議**：這段對話沒有提出修改測試方法的要求；後續我要求把測試表與截圖集中在同一份報告，方便從 GitHub 查看。
+② **模擬詢問**：「原生 JavaScript 新增任務後要呼叫 `renderTasks()`。換成 Vue 後，該把資料放在哪裡，才能讓新增、完成與刪除立即更新畫面？」
 
-#### 對話三：移除多餘文字並簡化 UI 配色
+③ **AI 技術回答**：把任務陣列放在 Vue 的 `data()`，模板使用 `v-for` 顯示資料，輸入欄以 `v-model` 連動。事件處理方法修改這份資料，由 Vue 更新清單；統計可使用 `computed` 計算。
 
-① **我遇到的問題**：AI 初版有英文標題、副標、輸入範例與較多裝飾；我希望保留簡單的課堂任務管理器介面。
+④ **目前程式的做法**：`vue-app.js` 的 `data()` 提供 `tasks` 與 `newTaskName`。新增呼叫 `this.tasks.push(...)`，完成切換 `task.completed`，刪除呼叫 `this.tasks.splice(...)`。Vue 版不呼叫原生版的 `renderTasks()`。
 
-② **我詢問 AI 的問題（原話，當時附三張介面截圖）**：
-
-> 僅保留課堂任務管理器
-> 例如：完成網頁作業 刪除
-> 目前沒有任務，先新增第一項吧！ 改成 目前沒有任務
-> UI的配色可以用的簡單一點 不需要太花俏
-
-③ **AI 的回答（摘要）**：保留「課堂任務管理器」標題，移除英文、副標與輸入框範例，將空清單提示改為「目前沒有任務」。原生版與 Vue 版都改成白底、灰色邊框與藍色主要按鈕。
-
-④ **我最後採取的做法**：我明確提出上述文字與外觀修改，AI 依要求修改兩個版本。報告中的桌面與手機截圖呈現修改後的介面。
-
-⑤ **我是否修改 AI 的建議**：有。我沒有保留 AI 初版的完整外觀，而是要求縮短文案、移除裝飾並簡化配色；這些要求來自我在對話中提出的選擇。
+⑤ **建議的調整方式**：不要把 React 的 `setTasks()` 寫法套進 Vue。本作品採 Vue Options API，並以 `trim()` 檢查空白輸入；兩個版本的任務資料保持獨立。
 
 ### B3. 分析其中一段對話
 
-以對話三為例，AI 的回應直接對應我提出的修改要求。修改後的程式與截圖顯示：標題只保留「課堂任務管理器」、輸入欄沒有範例文字、空清單顯示「目前沒有任務」，配色也改為灰白與藍色。
+以模擬對話一為例，固定 ID 可以解決「顯示順序不等於原始陣列順序」的問題。還需要保存目前篩選條件，才能在新增、完成或刪除後維持相同篩選。原生版使用 `activeFilter` 與 `getVisibleTasks()`，統計則從完整的 `tasks` 陣列計算。
 
-我把外觀需求拆成標題、輸入範例、空清單提示與配色四項，並提供截圖，讓 AI 能依具體要求修改。AI 已執行修改與自動測試；我仍需親自操作，確認外觀與功能符合我的需求。
+這是對程式設計的分析；沒有將模擬 Bug 寫成學生實際遇到並自行修復的經歷。
 
-### B4. 沒有直接採用 AI 建議的例子
+### B4. 不同建議的比較
 
-AI 初版使用較多文案、漸層背景與陰影。我沒有原樣採用，而是要求只保留主要標題、刪除輸入範例、縮短空清單提示，並簡化配色。
+模擬選項 A：每次重畫任務清單，都替每個 checkbox 與刪除按鈕綁定事件。
 
-原因是我在對話中明確要求「不需要太花俏」，因此最後採用較簡單的配色與較少文案。
+模擬選項 B：在父層 `ul` 綁定事件，以 `data-task-id` 找到點擊的任務。
 
-
-## 十一　提交狀態與本人確認
-
-程式由 Codex 產生；本報告測試紀錄由 Playwright 自動執行，學生本人確認尚待補充。
-
-AI 使用說明已依真實對話整合在第十節；提交前請本人核對內容並保留完整聊天原文。
-
-提交前由學生本人完成下列欄位：
-
-- [ ] 補填本報告首頁的課程、班級、姓名與學號。
-- [ ] 本人核對第十節 AI 使用紀錄，確認敘述符合實際情況並保留對話原文。
-- [ ] 親自開啟原生版及 Vue 版，操作 TC01–TC10。
-- [ ] 記錄本人測試日期、瀏覽器版本及至少兩項操作前後證據。
-- [x] 建立公開 GitHub 儲存庫與 GitHub Pages，並由 AI 驗證原生版及 `vue.html`。
-- [ ] 本人以登出或無痕視窗確認網站、報告、程式碼與圖片均可開啟。
-
-本人測試日期：＿＿＿＿＿＿＿＿＿＿  
-本人測試瀏覽器：＿＿＿＿＿＿＿＿＿＿  
-本人測試結果：＿＿＿＿＿＿＿＿＿＿  
-本人簽名或確認：＿＿＿＿＿＿＿＿＿＿
+目前原生版採用選項 B 的事件委派，讓重建後的任務仍可操作；任務元素使用 `createElement()` 建立，名稱以 `textContent` 顯示。這項比較說明目前程式的設計，並非一段已發生的個人採用紀錄。
