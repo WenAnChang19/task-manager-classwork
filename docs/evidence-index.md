@@ -3,6 +3,7 @@
 以下 PNG 由 Playwright 在實際瀏覽器操作後拍攝，執行者為 AI 自動測試。
 請核對畫面與程式，並依老師要求補上你親自測試的紀錄。
 完整結果見 [test-report.md](test-report.md) 與 [JSON 原始結果](../evidence/test-results.json)。
+另有依使用者要求實際新增三項任務的 [操作前後截圖示範](add-task-demo.md)。
 
 | 查核點 | 證據 |
 | --- | --- |
