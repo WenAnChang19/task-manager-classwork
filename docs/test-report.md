@@ -2,7 +2,7 @@
 
 執行者：Codex 使用 Playwright 自動操作 Chromium；不是學生親自測試紀錄。
 
-執行時間：2026/9/30 下午3:08:39（Asia/Taipei）。瀏覽器 Chromium 151.0.7922.34。
+執行時間：2026/9/30 下午3:57:01（Asia/Taipei）。瀏覽器 Chromium 151.0.7922.34。
 
 這些是 UI 操作測試。老師所稱的 Unit Test Table 包含介面整合與人工測試情境，並非只有函式單元測試。學生仍須親自操作，另填 manual-test-table.md。
 

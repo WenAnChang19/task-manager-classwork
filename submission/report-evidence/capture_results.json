@@ -1,0 +1,313 @@
+{
+  "runner": "Codex 使用 Playwright 自動操作 Chromium；不是學生親自測試紀錄",
+  "time": "2026-09-30T07:53:20.799Z",
+  "browser": "151.0.7922.34",
+  "baseUrl": "http://127.0.0.1:8765",
+  "summary": {
+    "status": "PASS",
+    "screenshots": 25,
+    "failures": 0
+  },
+  "results": {
+    "desktop-overall.png": {
+      "action": "在 1280×900 Chromium 中開啟原生版本首頁",
+      "expected": "頁首、版本連結、新增表單與空任務清單完整顯示",
+      "actual": "完整頁面顯示，空清單與統計 0/0/0 正確",
+      "runner": "Codex 使用 Playwright 自動操作 Chromium；不是學生親自測試紀錄",
+      "time": "2026-09-30T07:53:16.823Z",
+      "status": "PASS",
+      "dimensions": {
+        "width": 1280,
+        "height": 900
+      }
+    },
+    "initial-ui.png": {
+      "action": "擷取原生版本 main 區域的初始狀態",
+      "expected": "報告主要功能區清楚顯示空清單",
+      "actual": "新增表單、空清單提示與統計 0/0/0 均可見",
+      "runner": "Codex 使用 Playwright 自動操作 Chromium；不是學生親自測試紀錄",
+      "time": "2026-09-30T07:53:16.912Z",
+      "status": "PASS",
+      "dimensions": {
+        "width": 832,
+        "height": 555
+      }
+    },
+    "add-before.png": {
+      "action": "在任務輸入欄輸入「完成 Web App 實作」，尚未送出",
+      "expected": "輸入文字可見，清單仍為空",
+      "actual": "輸入值正確且任務列數為 0",
+      "runner": "Codex 使用 Playwright 自動操作 Chromium；不是學生親自測試紀錄",
+      "time": "2026-09-30T07:53:17.130Z",
+      "status": "PASS",
+      "dimensions": {
+        "width": 832,
+        "height": 555
+      }
+    },
+    "add-after.png": {
+      "action": "按下新增任務",
+      "expected": "任務加入清單、輸入欄清空、統計更新",
+      "actual": "清單顯示「完成 Web App 實作」，輸入欄已清空，統計 1/1/0",
+      "runner": "Codex 使用 Playwright 自動操作 Chromium；不是學生親自測試紀錄",
+      "time": "2026-09-30T07:53:17.279Z",
+      "status": "PASS",
+      "dimensions": {
+        "width": 832,
+        "height": 555
+      }
+    },
+    "blank-before.png": {
+      "action": "在輸入欄放入純空白字元，尚未送出",
+      "expected": "畫面仍沒有任務",
+      "actual": "任務列數為 0，統計 0/0/0",
+      "runner": "Codex 使用 Playwright 自動操作 Chromium；不是學生親自測試紀錄",
+      "time": "2026-09-30T07:53:17.462Z",
+      "status": "PASS",
+      "dimensions": {
+        "width": 832,
+        "height": 555
+      }
+    },
+    "blank-after.png": {
+      "action": "送出純空白任務",
+      "expected": "拒絕新增並顯示輸入提示",
+      "actual": "沒有新增任務，顯示「請輸入任務內容。」，統計維持 0/0/0",
+      "runner": "Codex 使用 Playwright 自動操作 Chromium；不是學生親自測試紀錄",
+      "time": "2026-09-30T07:53:17.579Z",
+      "status": "PASS",
+      "dimensions": {
+        "width": 832,
+        "height": 555
+      }
+    },
+    "toggle-before.png": {
+      "action": "新增「完成 JavaScript 練習」，尚未勾選",
+      "expected": "任務呈現未完成狀態",
+      "actual": "核取方塊未勾選，統計 1/1/0",
+      "runner": "Codex 使用 Playwright 自動操作 Chromium；不是學生親自測試紀錄",
+      "time": "2026-09-30T07:53:17.830Z",
+      "status": "PASS",
+      "dimensions": {
+        "width": 832,
+        "height": 555
+      }
+    },
+    "toggle-after.png": {
+      "action": "勾選任務核取方塊",
+      "expected": "任務呈現完成樣式且統計更新",
+      "actual": "核取方塊已勾選、任務有 completed 樣式，統計 1/0/1",
+      "runner": "Codex 使用 Playwright 自動操作 Chromium；不是學生親自測試紀錄",
+      "time": "2026-09-30T07:53:17.929Z",
+      "status": "PASS",
+      "dimensions": {
+        "width": 832,
+        "height": 555
+      }
+    },
+    "untoggle-after.png": {
+      "action": "再次按下核取方塊取消完成",
+      "expected": "任務恢復未完成狀態",
+      "actual": "核取方塊未勾選，完成樣式移除，統計 1/1/0",
+      "runner": "Codex 使用 Playwright 自動操作 Chromium；不是學生親自測試紀錄",
+      "time": "2026-09-30T07:53:18.029Z",
+      "status": "PASS",
+      "dimensions": {
+        "width": 832,
+        "height": 555
+      }
+    },
+    "delete-before.png": {
+      "action": "建立兩項任務，準備刪除第一項",
+      "expected": "兩項任務與各自刪除按鈕可見",
+      "actual": "兩項任務順序正確，統計 2/2/0",
+      "runner": "Codex 使用 Playwright 自動操作 Chromium；不是學生親自測試紀錄",
+      "time": "2026-09-30T07:53:18.297Z",
+      "status": "PASS",
+      "dimensions": {
+        "width": 832,
+        "height": 580
+      }
+    },
+    "delete-after.png": {
+      "action": "刪除「完成 Web App 實作」",
+      "expected": "指定任務消失，另一項保留",
+      "actual": "僅保留「整理作業提交資料」，統計 1/1/0",
+      "runner": "Codex 使用 Playwright 自動操作 Chromium；不是學生親自測試紀錄",
+      "time": "2026-09-30T07:53:18.395Z",
+      "status": "PASS",
+      "dimensions": {
+        "width": 832,
+        "height": 555
+      }
+    },
+    "filter-all.png": {
+      "action": "以相同三項任務選擇「全部」，中間任務已完成",
+      "expected": "三項任務依原順序顯示",
+      "actual": "依序顯示 Web App、JavaScript、提交資料；統計 3/2/1",
+      "runner": "Codex 使用 Playwright 自動操作 Chromium；不是學生親自測試紀錄",
+      "time": "2026-09-30T07:53:18.731Z",
+      "status": "PASS",
+      "dimensions": {
+        "width": 832,
+        "height": 650
+      }
+    },
+    "filter-pending.png": {
+      "action": "以同一組資料選擇「未完成」",
+      "expected": "只顯示第一與第三項未完成任務",
+      "actual": "顯示 Web App 與提交資料兩項，整體統計仍為 3/2/1",
+      "runner": "Codex 使用 Playwright 自動操作 Chromium；不是學生親自測試紀錄",
+      "time": "2026-09-30T07:53:18.830Z",
+      "status": "PASS",
+      "dimensions": {
+        "width": 832,
+        "height": 580
+      }
+    },
+    "filter-completed.png": {
+      "action": "以同一組資料選擇「已完成」",
+      "expected": "只顯示中間的已完成任務",
+      "actual": "只顯示「完成 JavaScript 練習」，整體統計仍為 3/2/1",
+      "runner": "Codex 使用 Playwright 自動操作 Chromium；不是學生親自測試紀錄",
+      "time": "2026-09-30T07:53:18.945Z",
+      "status": "PASS",
+      "dimensions": {
+        "width": 832,
+        "height": 555
+      }
+    },
+    "stats-before.png": {
+      "action": "新增兩項未完成任務",
+      "expected": "統計顯示總數 2、未完成 2、已完成 0",
+      "actual": "兩項任務均未勾選，統計 2/2/0",
+      "runner": "Codex 使用 Playwright 自動操作 Chromium；不是學生親自測試紀錄",
+      "time": "2026-09-30T07:53:19.197Z",
+      "status": "PASS",
+      "dimensions": {
+        "width": 832,
+        "height": 580
+      }
+    },
+    "stats-after.png": {
+      "action": "將第一項任務標示為完成",
+      "expected": "總數不變，未完成減一、已完成加一",
+      "actual": "第一項已勾選，統計由 2/2/0 更新為 2/1/1",
+      "runner": "Codex 使用 Playwright 自動操作 Chromium；不是學生親自測試紀錄",
+      "time": "2026-09-30T07:53:19.297Z",
+      "status": "PASS",
+      "dimensions": {
+        "width": 832,
+        "height": 580
+      }
+    },
+    "vue-initial.png": {
+      "action": "開啟並等待 Vue 3 版本掛載",
+      "expected": "Vue 表單、空清單與 0/0/0 統計顯示",
+      "actual": "#vue-app 已掛載，任務列數 0，統計 0/0/0",
+      "runner": "Codex 使用 Playwright 自動操作 Chromium；不是學生親自測試紀錄",
+      "time": "2026-09-30T07:53:19.495Z",
+      "status": "PASS",
+      "dimensions": {
+        "width": 832,
+        "height": 555
+      }
+    },
+    "vue-add.png": {
+      "action": "在 Vue 版本新增「完成 Web App 實作」",
+      "expected": "Vue 清單與統計立即更新",
+      "actual": "新增一項未完成任務，統計 1/1/0",
+      "runner": "Codex 使用 Playwright 自動操作 Chromium；不是學生親自測試紀錄",
+      "time": "2026-09-30T07:53:19.595Z",
+      "status": "PASS",
+      "dimensions": {
+        "width": 832,
+        "height": 555
+      }
+    },
+    "vue-completed.png": {
+      "action": "勾選 Vue 任務",
+      "expected": "任務顯示完成且統計更新",
+      "actual": "核取方塊已勾選，統計 1/0/1",
+      "runner": "Codex 使用 Playwright 自動操作 Chromium；不是學生親自測試紀錄",
+      "time": "2026-09-30T07:53:19.695Z",
+      "status": "PASS",
+      "dimensions": {
+        "width": 832,
+        "height": 555
+      }
+    },
+    "vue-uncompleted.png": {
+      "action": "取消勾選 Vue 任務",
+      "expected": "任務恢復未完成且統計更新",
+      "actual": "核取方塊未勾選，統計 1/1/0",
+      "runner": "Codex 使用 Playwright 自動操作 Chromium；不是學生親自測試紀錄",
+      "time": "2026-09-30T07:53:19.794Z",
+      "status": "PASS",
+      "dimensions": {
+        "width": 832,
+        "height": 555
+      }
+    },
+    "vue-deleted.png": {
+      "action": "刪除 Vue 任務",
+      "expected": "清單回到空狀態且統計歸零",
+      "actual": "任務列數 0，空清單提示可見，統計 0/0/0",
+      "runner": "Codex 使用 Playwright 自動操作 Chromium；不是學生親自測試紀錄",
+      "time": "2026-09-30T07:53:19.897Z",
+      "status": "PASS",
+      "dimensions": {
+        "width": 832,
+        "height": 555
+      }
+    },
+    "hover-before.png": {
+      "action": "滑鼠尚未移入新增按鈕時擷取表單",
+      "expected": "按鈕顯示預設藍色",
+      "actual": "新增按鈕背景色為 rgb(37, 99, 235)",
+      "runner": "Codex 使用 Playwright 自動操作 Chromium；不是學生親自測試紀錄",
+      "time": "2026-09-30T07:53:20.072Z",
+      "status": "PASS",
+      "dimensions": {
+        "width": 782,
+        "height": 107
+      }
+    },
+    "hover-after.png": {
+      "action": "將滑鼠移入新增按鈕後擷取表單",
+      "expected": "hover 樣式使按鈕背景色改變",
+      "actual": "背景色由 rgb(37, 99, 235) 改為 rgb(29, 78, 216)",
+      "runner": "Codex 使用 Playwright 自動操作 Chromium；不是學生親自測試紀錄",
+      "time": "2026-09-30T07:53:20.462Z",
+      "status": "PASS",
+      "dimensions": {
+        "width": 782,
+        "height": 107
+      }
+    },
+    "focus-input.png": {
+      "action": "從版本連結按 Tab，將鍵盤焦點移至任務輸入欄",
+      "expected": "輸入欄顯示清楚的 focus-visible 外框",
+      "actual": "document.activeElement 為 #task-input，焦點外框可見",
+      "runner": "Codex 使用 Playwright 自動操作 Chromium；不是學生親自測試紀錄",
+      "time": "2026-09-30T07:53:20.542Z",
+      "status": "PASS",
+      "dimensions": {
+        "width": 782,
+        "height": 107
+      }
+    },
+    "mobile375.png": {
+      "action": "在 375×812 手機尺寸新增一項短任務與一項無空格長任務",
+      "expected": "長文字換行，所有按鈕留在視窗內，頁面無水平溢出",
+      "actual": "兩項任務可見，scrollWidth 375 ≤ viewport 375，所有按鈕邊界均在視窗內",
+      "runner": "Codex 使用 Playwright 自動操作 Chromium；不是學生親自測試紀錄",
+      "time": "2026-09-30T07:53:20.797Z",
+      "status": "PASS",
+      "dimensions": {
+        "width": 375,
+        "height": 939
+      }
+    }
+  }
+}

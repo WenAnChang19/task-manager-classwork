@@ -1,5 +1,8 @@
 # 查核點證據索引
 
+提交用的查核點、圖片、程式說明與測試表已統一在 [REPORT.md](../REPORT.md)。
+本檔保留原始本機測試圖片索引。
+
 以下 PNG 由 Playwright 在實際瀏覽器操作後拍攝，執行者為 AI 自動測試。
 請核對畫面與程式，並依老師要求補上你親自測試的紀錄。
 完整結果見 [test-report.md](test-report.md) 與 [JSON 原始結果](../evidence/test-results.json)。
@@ -27,5 +30,5 @@
 ## 證據的範圍
 
 自動測試使用本機 HTTP 靜態伺服器。這些截圖證明測試時本機功能可用；
-尚不代表 GitHub Pages 已發布，發布後須再驗證公開網址。
+GitHub Pages 的發布與公開網址驗證另記於 [REPORT.md](../REPORT.md)。
 圖中內容是測試任務，沒有替學生填寫個人姓名、心得或 AI 反思。

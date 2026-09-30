@@ -4,3 +4,10 @@ test-results/
 playwright-report/
 *.log
 *.zip
+submission/qa/
+submission/package/
+submission/__pycache__/
+submission/build-package.py
+submission/README.md
+submission/report/
+task-manager-classwork/
