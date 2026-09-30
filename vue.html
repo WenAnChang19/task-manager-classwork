@@ -10,9 +10,7 @@
     <header class="site-header">
       <div class="page-width header-content">
         <div>
-          <p class="eyebrow">VUE CLASSROOM TASKS</p>
           <h1>課堂任務管理器</h1>
-          <p class="subtitle">使用 Vue 3 製作的獨立練習版本。</p>
         </div>
         <nav aria-label="版本切換">
           <a href="index.html">返回原生版本</a>
@@ -33,7 +31,6 @@
               name="task"
               type="text"
               maxlength="200"
-              placeholder="例如：練習 Vue 元件"
               autocomplete="off"
               aria-describedby="form-message"
               required
@@ -58,7 +55,7 @@
           <span class="version-badge">Vue 3</span>
         </div>
 
-        <p id="empty-state" class="empty-state" v-if="tasks.length === 0">目前沒有任務，先新增第一項吧！</p>
+        <p id="empty-state" class="empty-state" v-if="tasks.length === 0">目前沒有任務</p>
         <ul id="task-list" class="task-list" aria-label="任務">
           <li
             v-for="task in tasks"

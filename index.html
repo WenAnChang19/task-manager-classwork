@@ -10,9 +10,7 @@
     <header class="site-header">
       <div class="page-width header-content">
         <div>
-          <p class="eyebrow">CLASSROOM TASKS</p>
           <h1>課堂任務管理器</h1>
-          <p class="subtitle">把今天要完成的事整理清楚，一項一項完成。</p>
         </div>
         <nav aria-label="版本切換">
           <a href="vue.html">查看 Vue 版本</a>
@@ -31,7 +29,6 @@
               name="task"
               type="text"
               maxlength="200"
-              placeholder="例如：完成網頁作業"
               autocomplete="off"
               aria-describedby="form-message"
               required
@@ -53,7 +50,7 @@
           </div>
         </div>
 
-        <p id="empty-state" class="empty-state">目前沒有任務，先新增第一項吧！</p>
+        <p id="empty-state" class="empty-state">目前沒有任務</p>
         <ul id="task-list" class="task-list" aria-label="任務"></ul>
 
         <div id="stats" class="stats" aria-label="任務統計">

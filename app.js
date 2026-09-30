@@ -118,9 +118,7 @@ function updateSummary(visibleCount) {
   document.querySelector("#completed-count").textContent = completedCount;
 
   emptyState.hidden = visibleCount > 0;
-  emptyState.textContent = tasks.length === 0
-    ? "目前沒有任務，先新增第一項吧！"
-    : "這個篩選條件目前沒有任務。";
+  emptyState.textContent = "目前沒有任務";
 }
 
 function restoreTaskFocus(focusTarget) {

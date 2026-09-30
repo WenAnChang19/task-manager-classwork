@@ -53,7 +53,7 @@ taskForm.addEventListener("submit", (event) => {
 
 ## 查核點 1-2：重要語意區域
 
-實際 index.html 第 45–64 行，含標示重要區域的註解。
+實際 index.html 第 42–61 行，含標示重要區域的註解。
 截圖見 [HTML](../evidence/code-html.png)。
 
 ```html
@@ -68,7 +68,7 @@ taskForm.addEventListener("submit", (event) => {
           </div>
         </div>
 
-        <p id="empty-state" class="empty-state">目前沒有任務，先新增第一項吧！</p>
+        <p id="empty-state" class="empty-state">目前沒有任務</p>
         <ul id="task-list" class="task-list" aria-label="任務"></ul>
 
         <div id="stats" class="stats" aria-label="任務統計">
