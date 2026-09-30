@@ -10,6 +10,4 @@
 | Unit Test 結果 | [REPORT.md：測試表](REPORT.md#3-unit-test-結果) |
 | AI 使用紀錄 | [REPORT.md：AI 使用紀錄](REPORT.md#4-ai-使用紀錄) |
 
-程式與所有提交文件可公開查看，不需登入。網站也可下載後直接開啟 `index.html`；Vue 執行檔已包含在 `vendor/`。
 
-兩個版本的任務資料獨立，重新整理後會清空。測試表標明 AI 自動測試，學生本人仍須操作確認。
