@@ -1,0 +1,135 @@
+{
+  "runner": "Codex 使用 Playwright 自動操作 Chromium；不是學生親自測試紀錄",
+  "time": "2026-09-30T06:50:10.676Z",
+  "browser": "151.0.7922.34",
+  "results": [
+    {
+      "id": "TC01",
+      "description": "新增正常任務",
+      "expected": "任務出現，輸入欄清空，統計為 1/1/0",
+      "actual": "新增任務出現，輸入已清空；共 1、未完成 1、已完成 0",
+      "status": "PASS",
+      "files": [
+        "TC01-before.png",
+        "TC01-after.png"
+      ]
+    },
+    {
+      "id": "TC02",
+      "description": "新增空白任務",
+      "expected": "空字串與純空白皆不新增，顯示提示",
+      "actual": "兩種空白輸入都沒有新增，畫面顯示提示",
+      "status": "PASS",
+      "files": [
+        "TC02-before.png",
+        "TC02-after.png"
+      ]
+    },
+    {
+      "id": "TC03",
+      "description": "完成任務",
+      "expected": "勾選後變成已完成，統計同步更新",
+      "actual": "任務已勾選且顯示完成樣式；統計為 1/0/1",
+      "status": "PASS",
+      "files": [
+        "TC03-before.png",
+        "TC03-after.png"
+      ]
+    },
+    {
+      "id": "TC04",
+      "description": "取消完成",
+      "expected": "取消勾選後恢復未完成",
+      "actual": "取消勾選，恢復未完成；統計為 1/1/0",
+      "status": "PASS",
+      "files": [
+        "TC04-before.png",
+        "TC04-after.png"
+      ]
+    },
+    {
+      "id": "TC05",
+      "description": "刪除任務",
+      "expected": "指定任務消失，其餘任務保留",
+      "actual": "指定任務消失，另一項保留；統計為 1/1/0",
+      "status": "PASS",
+      "files": [
+        "TC05-before.png",
+        "TC05-after.png"
+      ]
+    },
+    {
+      "id": "TC06",
+      "description": "篩選未完成",
+      "expected": "只顯示未完成，切回全部可看見所有任務",
+      "actual": "未完成篩選只顯示 A/C；全部篩選恢復 A/B/C，統計不受篩選影響",
+      "status": "PASS",
+      "files": [
+        "filter-all.png",
+        "filter-pending.png"
+      ]
+    },
+    {
+      "id": "TC07",
+      "description": "篩選已完成",
+      "expected": "只顯示已完成；空結果有提示",
+      "actual": "僅已完成任務出現；取消完成後該篩選為空並顯示提示",
+      "status": "PASS",
+      "files": [
+        "filter-completed.png",
+        "filter-empty.png"
+      ]
+    },
+    {
+      "id": "TC08",
+      "description": "統計數字",
+      "expected": "新增、完成、刪除、篩選後統計皆正確",
+      "actual": "依序驗證 0/0/0、2/2/0、2/1/1、1/1/0；篩選不改變統計",
+      "status": "PASS",
+      "files": [
+        "TC08-before.png",
+        "TC08-after.png"
+      ]
+    },
+    {
+      "id": "TC09",
+      "description": "手機尺寸",
+      "expected": "480、375、320px 長文字不溢出，按鈕可操作",
+      "actual": "三種手機寬度皆無橫向溢出；新增、篩選、完成、刪除可操作",
+      "status": "PASS",
+      "files": [
+        "mobile-480.png",
+        "mobile-375.png",
+        "mobile-320.png"
+      ]
+    },
+    {
+      "id": "TC10",
+      "description": "Vue 功能",
+      "expected": "Vue 正常啟動，新增、完成／取消、刪除立即更新",
+      "actual": "Vue 已掛載；三項操作與取消完成皆更新，拒絕空白；320px 無溢出",
+      "status": "PASS",
+      "files": [
+        "vue-before.png",
+        "vue-added.png",
+        "vue-completed.png",
+        "vue-uncompleted.png",
+        "vue-deleted.png",
+        "vue-mobile.png"
+      ]
+    },
+    {
+      "id": "EX01",
+      "description": "語意、重新整理、鍵盤、文字安全",
+      "expected": "基本 UI 保留，Enter 新增，HTML 字串不執行",
+      "actual": "語意結構存在；Enter 新增與 Space 切換成功；文字安全，重新整理保留 UI，hover 變色",
+      "status": "PASS",
+      "files": [
+        "desktop-reloaded.png",
+        "hover-before.png",
+        "hover-after.png",
+        "focus-after.png"
+      ]
+    }
+  ]
+}
