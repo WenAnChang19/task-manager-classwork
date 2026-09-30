@@ -46,4 +46,4 @@ npm test
 自動測試結果保存在 `evidence/test-results.json`。測試與截圖由 Codex 使用
 Playwright 執行，報告不會把它記為學生本人測試。學生親自測試及確認仍待完成。
 
-程式由 Codex 依使用者要求產生；個人 AI 使用說明依要求暫不整合進報告。
+程式由 Codex 依使用者要求產生；AI 使用紀錄已整合在 `REPORT.md` 第十節，請本人核對並保留聊天原文。
